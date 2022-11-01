@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:app="clr-namespace:AppDatePickerComponent"
+             x:Class="AppDatePickerComponent.MainPage">
+
+    <StackLayout>
+        <Label
+            Text="Example"
+            TextColor="Black">
+
+        </Label>
+
+        <app:DatePickerView
+            BackgroundColor="Transparent"
+            TextColor="Black"
+            Date="{Binding Date}"
+            MinDate="06.01.2019"
+            MaxDate="06.01.2022"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center" />
+    </StackLayout>
+
+</ContentPage>
