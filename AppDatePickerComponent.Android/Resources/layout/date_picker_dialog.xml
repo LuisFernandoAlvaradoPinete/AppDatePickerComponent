@@ -4,8 +4,6 @@
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
 
-	<l>
-
   <LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -20,10 +18,19 @@
 			android:layout_marginRight="20dp">
     </NumberPicker>
 
+	<NumberPicker
+			android:id="@+id/picker_day"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="20dp">
+	</NumberPicker>
+
     <NumberPicker
 			android:id="@+id/picker_year"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="20dp"
+			android:layout_marginRight="20dp">
     </NumberPicker>
   </LinearLayout>
 </LinearLayout>

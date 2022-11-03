@@ -109,5 +109,22 @@ namespace AppDatePickerComponent
         }
 
         #endregion MinDate
+
+        #region Title
+
+        public static readonly BindableProperty TitleProperty = BindableProperty.Create(
+            propertyName: nameof(Title),
+            returnType: typeof(string),
+            declaringType: typeof(DatePickerView),
+            defaultValue: default,
+            defaultBindingMode: BindingMode.TwoWay);
+
+        public string Title
+        {
+            get => (string)GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
+        }
+
+        #endregion
     }
 }

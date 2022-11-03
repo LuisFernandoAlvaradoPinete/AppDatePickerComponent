@@ -62,7 +62,7 @@ namespace AppDatePickerComponent.Droid
         {
             if (_monthYearPickerDialog == null)
             {
-                _monthYearPickerDialog = new DatePickerDialog();
+                _monthYearPickerDialog = new DatePickerDialog(Element.Title);
                 _monthYearPickerDialog.OnDateTimeChanged += OnDateTimeChanged;
                 _monthYearPickerDialog.OnClosed += OnClosed;
             }
@@ -85,15 +85,14 @@ namespace AppDatePickerComponent.Droid
         }
 
         private DateTime? FormatDateToMonthYear(DateTime? dateTime) =>
-            dateTime.HasValue ? (DateTime?)new DateTime(dateTime.Value.Year, dateTime.Value.Month, 1) : null;
+            dateTime.HasValue ? (DateTime?)new DateTime(dateTime.Value.Year, dateTime.Value.Month, dateTime.Value.Day) : null;
 
         private void CreateAndSetNativeControl()
         {
             var tv = new EditText(_context);
-
             tv.SetTextColor(Element.TextColor.ToAndroid());
             tv.TextSize = (float)Element.FontSize;
-            tv.Text = $"{Element.Date.Month:D2} | {Element.Date.Year}";
+            tv.Text = $"{Element.Date.Month:D2} / {Element.Date.Day:D2} / {Element.Date.Year}";
             tv.Gravity = Android.Views.GravityFlags.Center;
             tv.SetBackgroundColor(Element.BackgroundColor.ToAndroid());
 
@@ -120,7 +119,7 @@ namespace AppDatePickerComponent.Droid
         private void OnDateTimeChanged(object sender, DateTime e)
         {
             Element.Date = e;
-            Control.Text = $"{Element.Date.Month:D2} | {Element.Date.Year}";
+            Control.Text = $"{Element.Date.Month:D2} / {Element.Date.Day:D2} / {Element.Date.Year}";
             ClearPickerFocus();
         }
 
